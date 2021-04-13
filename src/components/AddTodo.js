@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import { View, StyleSheet, TextInput, Button, Alert} from 'react-native'
+import { View, StyleSheet, TextInput, Keyboard, Alert} from 'react-native'
+import {AntDesign} from '@expo/vector-icons'
 
 export const AddTodo = ({onSubmit}) => {
 
@@ -9,6 +10,7 @@ export const AddTodo = ({onSubmit}) => {
         if(value.trim()) {
             onSubmit(value)
             setValue('')
+            Keyboard.dismiss()
         }
         else {
             Alert.alert('Field not must be empty')
@@ -18,7 +20,9 @@ export const AddTodo = ({onSubmit}) => {
     return (
         <View style={styles.wrapper}>
             <TextInput style={styles.input} onChangeText={text => setValue(text)} value={value} placeholder={'Enter todo title...'} autoCorrect={false} autoCapitalize={'none'} />
-            <Button onPress={pressHandler} color="#000" title={'Add'} />
+            <AntDesign.Button onPress={pressHandler} name="pluscircleo">
+                Add
+            </AntDesign.Button>
         </View>
     )
 }

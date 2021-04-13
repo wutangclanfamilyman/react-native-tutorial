@@ -1,13 +1,14 @@
 import React, {useState} from 'react'
+import {} from '@expo/vector-icons'
 import {View, StyleSheet, TextInput, Button, Modal, Alert} from 'react-native'
 import { THEME } from '../theme'
+import { AppButton } from './ui/AppButton'
 
 export const EditModal = ({visible, onCancel, value, onSave}) => {
 
     const [title, setTitle] = useState(value)
 
     const saveHandler = () => {
-        console.log('TITLE', onSave);
         if(title.trim().length < 3) {
             Alert.alert('Error!', `Minimal length of title 3, now ${title.trim().length} symbols`)
         }
@@ -21,8 +22,8 @@ export const EditModal = ({visible, onCancel, value, onSave}) => {
             <View style={styles.wrap}>
                 <TextInput style={styles.input} value={title} onChangeText={setTitle} placeholder={'Enter title...'} autoCapitalize='none' autoCorrect={false} maxLength={64} />
                 <View style={styles.buttons}>
-                    <Button title={'Cancel'} color={THEME.DANGER_COLOR} onPress={onCancel}></Button>
-                    <Button title={'Save'} onPress={saveHandler}></Button>
+                    <AppButton color={THEME.DANGER_COLOR} onPress={onCancel}>Cancel</AppButton>
+                    <AppButton color={THEME.GREY_COLOR} onPress={saveHandler}>Save</AppButton>
                 </View>
             </View>
         </Modal>
