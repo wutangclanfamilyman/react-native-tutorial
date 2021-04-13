@@ -4,5 +4,6 @@ export const THEME = {
     MAIN_COLOR: '#d0d0d0',
     BORDER_TODO_COLOR: '#d0d0d0',
     ROBOTO_REGULAR: 'Roboto-Regular',
-    ROBOTO_BOLD: 'Roboto-Bold'
+    ROBOTO_BOLD: 'Roboto-Bold',
+    PADDING_HORIZONTAL: 10
 }
