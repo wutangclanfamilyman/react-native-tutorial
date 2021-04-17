@@ -11,8 +11,8 @@ export const MainLayout = () => {
     const {todoId} = useContext(ScreenContext)
 
     return (
-        <View>
-            <Navbar title={'Todo App'} />
+        <View style={styles.wrapper}>
+            <Navbar title={'Todo Application'} />
             <View style={styles.container}>
                 {todoId ? <TodoScreen /> : <MainScreen />}
             </View>
@@ -22,6 +22,10 @@ export const MainLayout = () => {
 
 const styles = StyleSheet.create({
     container: {
-      paddingHorizontal: THEME.PADDING_HORIZONTAL
+      paddingHorizontal: THEME.PADDING_HORIZONTAL,
+      flex: 1
+    },
+    wrapper: {
+        flex: 1
     }
   });

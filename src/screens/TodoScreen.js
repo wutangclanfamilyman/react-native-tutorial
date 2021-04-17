@@ -21,8 +21,8 @@ export const TodoScreen = () => {
         
     const [modal, setModal] = useState(false)
 
-    const saveHandler = title => {
-        updateTodo(todo.id, title)
+    const saveHandler = async title => {
+        await updateTodo(todo.id, title)
         setModal(false)
     }
 
@@ -30,7 +30,7 @@ export const TodoScreen = () => {
         <EditModal value={todo.title} visible={modal} onCancel={() => setModal(false)} onSave={saveHandler}/>
         <AppCard style={styles.card}>
             <AppTextBold style={styles.title}>{todo.title}</AppTextBold>
-            <AppButton color={'blue'} onPress={() => setModal(true)}>
+            <AppButton color={THEME.DARK_COLOR} onPress={() => setModal(true)}>
                 <FontAwesome name='edit' size={20} />
             </AppButton>
         </AppCard>
